@@ -1,1 +1,1 @@
-h1: Welcome to my pet project with Docker and Nginx!
+Welcome to my pet project with Docker and Nginx!
