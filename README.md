@@ -1,3 +1,1 @@
-Welcome to my pet project
-Technology-stack:
-Docker Nginx
+h1: Welcome to my pet project with Docker and Nginx!
