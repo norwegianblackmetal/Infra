@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vagrant.plugins = {"vagrant-vbguest" => {"version" => "0.21.0"}}
+  config.vbguest.installer_options = { allow_kernel_upgrade: true } 
+
+  config.vm.provider :virtualbox do |vbox|
+    vbox.check_guest_additions = false
+    vbox.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+  end
+
+  config.vm.define "kvmserver1" do |kvmserver1|
+    kvmserver1.vm.provider :virtualbox do |vbox|
+      vbox.memory = 2048
+      vbox.cpus = 2
+    end
+    kvmserver1.vm.box = "centos/7"
+    kvmserver1.vm.hostname = "kvmserver1"
+    kvmserver1.vm.network "private_network", type: "dhcp"
+    kvmserver1.vm.provision "shell", inline: <<-SHELL
+      yum group install "Virtualization Host"
+      systemctl start libvirtd
+      systemctl enable libvirtd
+    SHELL
+  end
+  
+end
