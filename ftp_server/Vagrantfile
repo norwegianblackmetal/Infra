@@ -3,33 +3,23 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vagrant.plugins = {"vagrant-vbguest" => {"version" => "0.21.0"}}
-  config.vbguest.installer_options = { allow_kernel_upgrade: true } 
-
-  config.vm.provider :virtualbox do |vbox|
-    vbox.check_guest_additions = false
-    vbox.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+  Vagrant.configure("2") do |config|
+    config.vagrant.plugins = "vagrant-libvirt"
   end
 
-  config.vm.define "ftpserver1" do |ftpserver1|
-    ftpserver1.vm.provider :virtualbox do |vbox|
-      vbox.memory = 1024
-      vbox.cpus = 1
-    end
-    ftpserver1.vm.box = "centos/7"
-    ftpserver1.vm.hostname = "ftpserver1"
-    ftpserver1.vm.network "private_network", type: "dhcp"
-    #ftpserver1.vm.synced_folder "volume/", "/srv/vagrant"
-    #  owner: "root", group: "root"
-    ftpserver1.vm.provision "shell", inline: <<-SHELL
+  config.vm.define "ftpserver" do |ftpserver|
+    ftpserver.vm.box = "centos/7"
+    ftpserver.vm.hostname = "ftpserver"
+    #ftpserver.vm.network "private_network", type: "dhcp"
+    ftpserver.vm.provision "shell", inline: <<-SHELL
       yum -y install vsftpd
       #echo ID_RSA_PUB >> /home/vagrant/.ssh/authorized_keys
       systemctl start vsftpd
       systemctl enable vsftpd
-      mount -ro loop /vagrant/volume/CentOS-7-x86_64-Minimal-2009.iso /media
-      mkdir /var/ftp/pub/inst
-      cp -a /media/* /var/ftp/pub/inst
+      # mount -ro loop /vagrant/volume/CentOS-7-x86_64-Minimal-2009.iso /media
+      # mkdir /var/ftp/pub/inst
+      # cp -a /media/* /var/ftp/pub/inst
     SHELL
   end
-
+  
 end
