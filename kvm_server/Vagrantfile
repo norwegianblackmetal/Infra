@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
       yum -y group install "Virtualization Host"
       systemctl start libvirtd
       systemctl enable libvirtd
+      sudo usermod -a -G libvirt vagrant #необходимо, чтобы подключаться к либвирту с хоста
       echo $(ip -4 -br a show eth0 | awk '{print $3}')
     SHELL
   end
-  
 end

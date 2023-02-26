@@ -1,7 +1,6 @@
 #!/bin/sh
-sudo virt-install --name "kvm-server.local" \
-	--memory 1024 --vcpus 2 \
-	--disk /home/norwegianblackmetal/KVM/centos7.0-0.qcow2,bus=sata --import \
-	--graphics none \
-	--os-variant centos7 \
-	--network default
+virt-install -n outsider1.example.org \
+	-r 1024 \
+	--disk path=/var/lib/libvirt/images/outsider1.example.org.img,size=10 \
+	-l ftp://192.168.122.112/pub/inst/ \
+	-x ks=ftp://192.168.122.112/pub/ks1.cfg
