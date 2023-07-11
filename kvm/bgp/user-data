@@ -1,15 +1,8 @@
-hostname: nixcraft-rhel8
- 
-users:
-    - default
-    - name: centos
-      groups: ['wheel']
-      shell: /bin/bash
-      sudo: ALL=(ALL) NOPASSWD:ALL
-      ssh-authorized-keys:
-	- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8UQXpALLq5tYHmYw+29jFr4KiZgGTdffvJQ+N3ewECujeeq7fXkb6fqzblN9GwA1Y09yHR8wxssRKw6k6JCZ+70Tn1rfi4sE/ErUaDPYNwj5uz059E+W6qBHXks/cH5YS/qFlXZkkt8VoFxIJFv+VUGu1OGiYkjAA8zeRPENVeqYpJ22bCPCaFoEDrr90ZkhA0zIR24gMLpvA6mk7od0a7Uyfq1sjsV1kw4RthOdzdrBqRxgPjQAniB4Kvvy0yNq67r2pwH3WGSjb1xItSeIEq/lS2c7d3Ov4IFfmGOC7757ecM/goPpLAXgYDxWyaU1+4VLKfhdQ6hu3xZt+pT96mSk/Yjelep4U8+n2aXGxdcm2K3hEQtcCWzDw5uXK4T4F87TilmbXZ3Pnh9JkRpDZa3ZUTOcDsjXerl+L8u2jzNscpjrm0ezr+/Kdsneh6OekAASk8AYukprcwZVfus1JrzqLSSMZlZf89Fvpx7UL1XVHapFLzxbESNlWsOjTqis=
- 
-# Configure where output will go
-output:
-  all: ">> /var/log/cloud-init.log"
+#cloud-config
 
+users:
+  - name: centos
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1EBVPJKM2QuoBF3uVyTHyT6cGMRuBnN9J8tSBl/0HvSgFC1Jabsry7DRjVHCJg1pGiZeoHsqDUcZqinE4NmLf6Oc97oQkMKEZhqDlLmbv1HRNtmZqZvmIuKNnOjYdWMfKFlbnO6YQcqBlfsvsDYtYmgjFIP/aZp6yGp5qCfDBWOu3/zPtYyk0XeWQRwPUbHSM3IWjhatIJ4viQbZeUfpJqhcU951ELaj3Os2/yipo5jaG4Ngotbs79llpH4rmqQFpAvyirw1Di74JZl4DDJrvE4Cb4Cv/mdbHhSU4PgetnHJcp34l0UhBnlwOg2FN+3pMjUNaWZpgIoQzowikX4tZgN1NH3SELhu0Ekj4dfP8HrAzjG8gkWWr4NUgNky4PQEu9y2OYj/4n9H7Qc6QKNrTRvz/KUzmvwAC8YWMLjJdrH9RuO0AUzBpzZf6kgXQ9U/oM7/KbRQSkwVj57dIxtU/B/dv75/OlpYsdPUndId/RLixwXpsssFm/qJW75VdAjE=
+ 
