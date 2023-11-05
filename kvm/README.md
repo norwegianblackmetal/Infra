@@ -4,16 +4,18 @@
 
 kvm server на базе Virtual Box.
 
-----
+---
 
 ### Трюки
 
 Включить вложенную виртуализацию:
+
 ```
+VBoxManage.exe list vms # список ВМ
 VBoxManage modifyvm <VirtualMachineName> --nested-hw-virt on
 ```
 
-----
+---
 
 ### Дополнительно
 
