@@ -1,0 +1,8 @@
+#cloud-config
+
+users:
+  - name: centos
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1EBVPJKM2QuoBF3uVyTHyT6cGMRuBnN9J8tSBl/0HvSgFC1Jabsry7DRjVHCJg1pGiZeoHsqDUcZqinE4NmLf6Oc97oQkMKEZhqDlLmbv1HRNtmZqZvmIuKNnOjYdWMfKFlbnO6YQcqBlfsvsDYtYmgjFIP/aZp6yGp5qCfDBWOu3/zPtYyk0XeWQRwPUbHSM3IWjhatIJ4viQbZeUfpJqhcU951ELaj3Os2/yipo5jaG4Ngotbs79llpH4rmqQFpAvyirw1Di74JZl4DDJrvE4Cb4Cv/mdbHhSU4PgetnHJcp34l0UhBnlwOg2FN+3pMjUNaWZpgIoQzowikX4tZgN1NH3SELhu0Ekj4dfP8HrAzjG8gkWWr4NUgNky4PQEu9y2OYj/4n9H7Qc6QKNrTRvz/KUzmvwAC8YWMLjJdrH9RuO0AUzBpzZf6kgXQ9U/oM7/KbRQSkwVj57dIxtU/B/dv75/OlpYsdPUndId/RLixwXpsssFm/qJW75VdAjE=
+ 
