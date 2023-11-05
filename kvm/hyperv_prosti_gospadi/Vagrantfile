@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+    # vi: set ft=ruby :
+
+    # All Vagrant configuration is done below. The "2" in Vagrant.configure
+    # configures the configuration version (we support older styles for
+    # backwards compatibility). Please don't change it unless you know what
+    # you're doing.
+    Vagrant.configure("2") do |config|
+      config.vm.box = "centos/hyperv/"
+      config.vm.network "public_network"
+      config.vm.disk :disk, size: "10GB", primary: true
+      config.vm.provider "hyperv" do |h|
+        h.enable_virtualization_extensions = true
+        h.linked_clone = true
+        h.vm_integration_services = {
+            guest_service_interface: true,
+            CustomVMSRV: true
+          }
+      end
+    end
