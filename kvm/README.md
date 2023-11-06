@@ -8,11 +8,17 @@ kvm server на базе Virtual Box.
 
 ### Трюки
 
-Включить вложенную виртуализацию:
+Включить вложенную виртуализацию VirtualBox:
 
 ```
 VBoxManage.exe list vms                                          # список ВМ
 VBoxManage modifyvm <VirtualMachineName> --nested-hw-virt on
+```
+
+Включить вложенную виртуализацию HyperV:
+
+```
+Set-VMProcessor -VMName hyperv-1 -ExposeVirtualizationExtensions $true
 ```
 
 ---
