@@ -30,6 +30,11 @@ qemu-img create -f qcow2 \
   /var/lib/libvirt/images/vm1.qcow2 10G
 ```
 
+Смена root-пароля
+```
+virt-customize -a image_name.qcow2 --root-password password:your.great.password
+``` 
+
 ---
 
 ### Материалы
