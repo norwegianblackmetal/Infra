@@ -35,4 +35,5 @@ qemu-img create -f qcow2 \
 ### Материалы
 
 https://sumit-ghosh.com/posts/create-vm-using-libvirt-cloud-images-cloud-init/
+
 https://codeofconnor.com/a-faster-way-to-create-virtual-machines-with-cloud-images-and-virt-manager/
